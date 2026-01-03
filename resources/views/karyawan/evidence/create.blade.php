@@ -217,8 +217,8 @@
             <div class="form-group">
                 <label>File Evidence</label>
                 <div id="evidence-dropzone" class="dropzone">
-                    <div class="dz-message" data-dz-message><span>Seret foto/folder ke sini atau klik untuk memilih |
-                            Tanpa batasan ukuran & jumlah</span></div>
+                    <div class="dz-message" data-dz-message><span>Seret foto/folder ke sini atau klik untuk memilih
+                    </span></div>
                 </div>
             </div>
 
