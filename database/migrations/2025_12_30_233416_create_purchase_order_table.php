@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('purchase_order', function (Blueprint $table) {
             $table->id();
-            $table->string('no_po', 255);
+            $table->integer('no_po', 11);
             $table->timestamps();
         });
     }
