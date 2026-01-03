@@ -46,7 +46,7 @@ class EvidenceController extends Controller
             ->get();
 
         // 3. Ambil master data lain (Pangwas & Tematik)
-        $pangwas_list = Pangwas::orderBy('nama_pangwas', 'asc')->get();
+        $pangwas_list = Pangwas::latest()->get();
         $tematik_list = Tematik::orderBy('nama_tematik', 'asc')->get();
 
         return view('karyawan.evidence.create', compact('pangwas_list', 'tematik_list', 'po_list'));
@@ -167,7 +167,7 @@ class EvidenceController extends Controller
         }
 
         // Mengambil data master untuk dropdown
-        $pangwas_list = Pangwas::orderBy('nama_pangwas', 'asc')->get();
+        $pangwas_list = Pangwas::latest()->get();
         $tematik_list = Tematik::orderBy('nama_tematik', 'asc')->get();
         // Di form EDIT, kita tidak perlu memfilter PO karena PO yang sudah selesai harus tetap bisa diedit.
         $po_list = PurchaseOrder::orderBy('no_po', 'asc')->get();
