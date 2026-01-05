@@ -30,6 +30,51 @@
         .topbar { background: #fff; padding: 15px 25px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
         .welcome { font-size: 1.1rem; font-weight: 600; color: #991b1b; }
         .date { font-weight: 500; color: #4b5563; }
+
+        /* Fix for oversized Laravel pagination arrows */
+        nav svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            display: inline-block;
+        }
+        nav div[role="navigation"] {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            nav div[role="navigation"] {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        nav p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin: 0.5rem 0;
+        }
+        nav span.relative, nav a.relative {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #fff;
+            border: 1px solid #e5e7eb;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        nav a.relative:hover {
+            background-color: #f9fafb;
+            color: #111827;
+        }
+        nav span[aria-current="page"] span {
+            background-color: #f3f4f6;
+            color: #111827;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
