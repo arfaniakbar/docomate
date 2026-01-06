@@ -142,12 +142,13 @@ class LaporanController extends Controller
                 }
 
                 // Title
-                $section->addTextBreak(0.8);
+                $section->addTextBreak(1.0);
                 $section->addText(
                     'EVIDENCE PEKERJAAN',
                     ['bold' => true, 'size' => 14, 'underline' => 'single'],
-                    ['alignment' => Jc::CENTER, 'spaceAfter' => 80]
+                    ['alignment' => Jc::CENTER, 'spaceAfter' => 0]
                 );
+                $section->addTextBreak(2.0);
 
                 // Info Project - pakai TABEL tanpa border
                 $infoTableStyle = [
