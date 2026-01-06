@@ -155,7 +155,7 @@ class LaporanController extends Controller
                     'borderColor' => 'FFFFFF',
                     'cellMargin' => 0,
                     'alignment' => Jc::START,
-                    'width' => 9000,
+                    'width' => 8500,
                     'unit' => 'dxa'
                 ];
                 
@@ -201,19 +201,19 @@ class LaporanController extends Controller
 
                 $section->addTextBreak(1);
 
-                // Tabel Gambar - maksimal 6 foto (3 kolom x 2 baris)
+                // Tabel Gambar - maksimal 6 foto (3 kolom x 2 baris) dalam SATU tabel
+                $imageTable = $section->addTable([
+                    'borderSize' => 6,
+                    'borderColor' => '000000',
+                    'cellMargin' => 80,
+                    'alignment' => Jc::START, // Sejajarkan dng infoTable (START)
+                    'width' => 8500,
+                    'unit' => 'dxa'
+                ]);
+
                 $imageRows = array_chunk($pageImages, 3);
                 
                 foreach ($imageRows as $row) {
-                    $imageTable = $section->addTable([
-                        'borderSize' => 6,
-                        'borderColor' => '000000',
-                        'cellMargin' => 80,
-                        'alignment' => Jc::START, // Sejajarkan dng infoTable
-                        'width' => 9000,
-                        'unit' => 'dxa'
-                    ]);
-
                     // Row gambar - tinggi otomatis
                     $imageTable->addRow();
                     foreach ($row as $fileData) {
@@ -228,9 +228,9 @@ class LaporanController extends Controller
                                 list($width, $height) = getimagesize($fullPath);
                                 $ratio = $width / $height;
                                 
-                                // Maksimal dimensi agar pas di cell
-                                $maxWidth = 180;
-                                $maxHeight = 240;
+                                // Maksimal dimensi agar pas di cell (diperkecil agar lebih rapi)
+                                $maxWidth = 160;
+                                $maxHeight = 210;
 
                                 if ($ratio < 1) { // Portrait
                                     $newHeight = $maxHeight;
@@ -254,7 +254,7 @@ class LaporanController extends Controller
                         }
                     }
                     
-                    // Isi cell kosong
+                    // Isi cell kosong jika baris tidak penuh
                     for ($i = count($row); $i < 3; $i++) {
                         $imageTable->addCell(3000);
                     }
@@ -269,7 +269,7 @@ class LaporanController extends Controller
                         );
                     }
                     
-                    // Isi cell caption kosong
+                    // Isi cell caption kosong jika baris tidak penuh
                     for ($i = count($row); $i < 3; $i++) {
                         $imageTable->addCell(3000);
                     }
