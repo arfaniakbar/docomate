@@ -135,10 +135,7 @@
     align-items: center;
 ">
     <div class="login-container">
-        <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px; gap: 15px;">
-            <img src="{{ asset('images/logo-icon.png') }}" alt="Logo Icon" style="width: 50px; height: auto;">
-            <img src="{{ asset('images/logo-kanan.png') }}" alt="Logo Telkom Akses" style="width: 120px; height: auto; margin: 0;">
-        </div>
+        <img src="{{ asset('images/logo-kanan.png') }}" alt="Logo Telkom Akses" class="logo">
         
         <h2>PORTAL LOGIN</h2>
 
