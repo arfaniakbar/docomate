@@ -154,7 +154,9 @@ class LaporanController extends Controller
                     'borderSize' => 0,
                     'borderColor' => 'FFFFFF',
                     'cellMargin' => 0,
-                    'alignment' => Jc::START
+                    'alignment' => Jc::CENTER,
+                    'width' => 9000,
+                    'unit' => 'dxa'
                 ];
                 
                 $cellStyle = [
@@ -207,7 +209,9 @@ class LaporanController extends Controller
                         'borderSize' => 6,
                         'borderColor' => '000000',
                         'cellMargin' => 80,
-                        'alignment' => Jc::CENTER
+                        'alignment' => Jc::CENTER,
+                        'width' => 9000,
+                        'unit' => 'dxa'
                     ]);
 
                     // Row gambar
@@ -221,9 +225,22 @@ class LaporanController extends Controller
                             // Cek ukuran file
                             $fileSize = filesize($fullPath);
                             if ($fileSize <= 5 * 1024 * 1024) { // Max 5MB
+                                list($width, $height) = getimagesize($fullPath);
+                                $ratio = $width / $height;
+                                
+                                // Portrait: Max height 230, width follows ratio
+                                // Landscape: Max width 180, height follows ratio
+                                if ($ratio < 1) { // Portrait
+                                    $newHeight = 230;
+                                    $newWidth = $newHeight * $ratio;
+                                } else { // Landscape
+                                    $newWidth = 180;
+                                    $newHeight = $newWidth / $ratio;
+                                }
+
                                 $cell->addImage($fullPath, [
-                                    'width' => 150,
-                                    'height' => 150,
+                                    'width' => $newWidth,
+                                    'height' => $newHeight,
                                     'alignment' => Jc::CENTER
                                 ]);
                             }
