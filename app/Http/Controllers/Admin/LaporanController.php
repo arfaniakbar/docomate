@@ -112,10 +112,10 @@ class LaporanController extends Controller
 
             foreach ($imageChunks as $chunkIndex => $pageImages) {
                 $section = $phpWord->addSection([
-                    'marginTop' => 800,
-                    'marginBottom' => 800,
-                    'marginLeft' => 1200,
-                    'marginRight' => 1200
+                    'marginTop' => 600,
+                    'marginBottom' => 600,
+                    'marginLeft' => 600,
+                    'marginRight' => 600
                 ]);
 
                 // Header Logo - di setiap halaman
@@ -142,11 +142,11 @@ class LaporanController extends Controller
                 }
 
                 // Title
-                $section->addTextBreak(2.0);
+                $section->addTextBreak(0.8);
                 $section->addText(
                     'EVIDENCE PEKERJAAN',
                     ['bold' => true, 'size' => 14, 'underline' => 'single'],
-                    ['alignment' => Jc::CENTER, 'spaceAfter' => 150]
+                    ['alignment' => Jc::CENTER, 'spaceAfter' => 80]
                 );
 
                 // Info Project - pakai TABEL tanpa border
@@ -197,7 +197,7 @@ class LaporanController extends Controller
                 $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 10]);
                 $infoTable->addCell(7000, $cellStyle)->addText('PT. TELKOM AKSES', ['size' => 10]);
 
-                $section->addTextBreak(0.3);
+                $section->addTextBreak(0.2);
 
                 // Tabel Gambar - 6 foto (3 kolom x 2 baris) dalam SATU tabel
                 $imageTable = $section->addTable([
