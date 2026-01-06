@@ -204,7 +204,9 @@ class LaporanController extends Controller
                     'borderSize' => 6,
                     'borderColor' => '000000',
                     'cellMargin' => 40,
-                    'alignment' => Jc::START
+                    'alignment' => Jc::START,
+                    'width' => 9500,
+                    'unit' => 'dxa'
                 ]);
 
                 $imageRows = array_chunk($pageImages, 3);
@@ -213,7 +215,7 @@ class LaporanController extends Controller
                     // Row gambar
                     $imageTable->addRow();
                     foreach ($row as $fileData) {
-                        $cell = $imageTable->addCell(2800, ['valign' => 'center']);
+                        $cell = $imageTable->addCell(3150, ['valign' => 'center']);
                         $safePath = ltrim($fileData['path'], '/');
                         $fullPath = storage_path('app/public/' . $safePath);
 
@@ -256,7 +258,7 @@ class LaporanController extends Controller
                     // Row caption
                     $imageTable->addRow();
                     foreach ($row as $fileData) {
-                        $imageTable->addCell(2800, ['valign' => 'center'])->addText(
+                        $imageTable->addCell(3150, ['valign' => 'center'])->addText(
                             $fileData['caption'] ?? '',
                             ['size' => 8],
                             ['alignment' => Jc::CENTER]
