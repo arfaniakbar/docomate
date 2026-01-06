@@ -8,14 +8,15 @@
             margin: 40px;
         }
         body { 
-            font-family: Arial, sans-serif; 
+            font-family: 'Helvetica', 'Arial', sans-serif; 
             font-size: 11pt; 
             margin: 0;
             padding: 0;
+            color: #000;
         }
         .header { 
             width: 100%; 
-            margin-bottom: 15px;
+            margin-bottom: 30px;
             border-collapse: collapse;
         }
         .header td { 
@@ -25,27 +26,29 @@
             text-align: center; 
             font-weight: bold; 
             font-size: 14pt; 
-            margin: 10px 0; 
+            margin-bottom: 25px; 
             text-decoration: underline; 
         }
         .info { 
             width: 100%; 
-            margin-bottom: 20px; 
+            margin-bottom: 25px; 
             border-collapse: collapse; 
         }
         .info td { 
-            padding: 4px 6px; 
+            padding: 3px 0; 
             vertical-align: top; 
+            line-height: 1.4;
         }
-        .info td:first-child { 
-            width: 20%; 
+        .info .label { 
+            width: 110px; 
             font-weight: bold; 
         }
-        .info td:nth-child(2) { 
-            width: 3%; 
+        .info .separator { 
+            width: 20px; 
+            text-align: center; 
         }
-        .info td:last-child { 
-            width: 77%; 
+        .info .value { 
+            width: auto; 
         }
         .evidence-table { 
             width: 100%; 
@@ -90,16 +93,16 @@
     {{-- Info project - tampil di semua halaman untuk testing --}}
     <table class="info">
         <tr>
-            <td>PROYEK</td>
-            <td>:</td>
-            <td>
+            <td class="label">PROYEK</td>
+            <td class="separator">:</td>
+            <td class="value">
                 PENGADAAN PEKERJAAN OUTSIDE PLANT FIBER TO THE HOME (OSP - FTTH) TAHUN 2026 TELKOM REGIONAL IV KALIMANTAN
             </td>
         </tr>
-        <tr><td>KONTRAK</td><td>:</td><td></td></tr>
-        <tr><td>AREA</td><td>:</td><td>BANJARMASIN</td></tr>
-        <tr><td>LOKASI</td><td>:</td><td>{{ $evidenceData['lokasi'] ?? '-' }}</td></tr>
-        <tr><td>PELAKSANA</td><td>:</td><td>PT. TELKOM AKSES</td></tr>
+        <tr><td class="label">KONTRAK</td><td class="separator">:</td><td class="value"></td></tr>
+        <tr><td class="label">AREA</td><td class="separator">:</td><td class="value">BANJARMASIN</td></tr>
+        <tr><td class="label">LOKASI</td><td class="separator">:</td><td class="value">{{ $evidenceData['lokasi'] ?? '-' }}</td></tr>
+        <tr><td class="label">PELAKSANA</td><td class="separator">:</td><td class="value">PT. TELKOM AKSES</td></tr>
     </table>
 
     {{-- Tabel gambar (maksimal 6 foto, 3 kolom x 2 baris) --}}

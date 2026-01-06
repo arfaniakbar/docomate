@@ -123,21 +123,20 @@ class LaporanController extends Controller
                 $headerTable = $header->addTable(['alignment' => Jc::CENTER]);
                 $headerTable->addRow();
                 
-                // Logo kiri
+                // Logo kiri (Telkom Akses)
                 $cellLeft = $headerTable->addCell(4500);
                 if (file_exists(public_path('images/logo-kiri.png'))) {
                     $cellLeft->addImage(public_path('images/logo-kiri.png'), [
-                        'width' => 120,
-                        'height' => 50
+                        'height' => 45, 
+                        'alignment' => Jc::START
                     ]);
                 }
                 
-                // Logo kanan
+                // Logo kanan (Telkom Indonesia)
                 $cellRight = $headerTable->addCell(4500);
                 if (file_exists(public_path('images/logo-kanan.png'))) {
                     $cellRight->addImage(public_path('images/logo-kanan.png'), [
-                        'width' => 100,
-                        'height' => 60,
+                        'height' => 55,
                         'alignment' => Jc::END
                     ]);
                 }
