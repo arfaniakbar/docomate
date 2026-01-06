@@ -33,7 +33,7 @@
         <tr>
             <td class="label">PROYEK</td>
             <td class="separator">:</td>
-            <td>{{ $evidence->judul ?? 'PENGADAAN PEKERJAAN OUTSIDE PLANT FIBER TO THE HOME (OSP - FTTH) TAHUN 2025 TELKOM REGIONAL IV KALIMANTAN ' }}</td>
+            <td>{{ $evidence->judul ?? 'PENGADAAN PEKERJAAN OUTSIDE PLANT FIBER TO THE HOME (OSP - FTTH) TAHUN 2026 TELKOM REGIONAL IV KALIMANTAN' }}</td>
         </tr>
         <tr>
             <td class="label">KONTRAK</td>
