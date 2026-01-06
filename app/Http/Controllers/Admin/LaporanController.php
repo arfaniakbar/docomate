@@ -198,7 +198,7 @@ class LaporanController extends Controller
                 $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 10]);
                 $infoTable->addCell(7000, $cellStyle)->addText('PT. TELKOM AKSES', ['size' => 10]);
 
-                $section->addTextBreak(0.2);
+                $section->addTextBreak(1.0);
 
                 // Tabel Gambar - 6 foto (3 kolom x 2 baris) dalam SATU tabel
                 $imageTable = $section->addTable([
