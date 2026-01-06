@@ -146,7 +146,7 @@ class LaporanController extends Controller
                 $section->addText(
                     'EVIDENCE PEKERJAAN',
                     ['bold' => true, 'size' => 14, 'underline' => 'single'],
-                    ['alignment' => Jc::CENTER, 'spaceAfter' => 240]
+                    ['alignment' => Jc::CENTER, 'spaceAfter' => 120]
                 );
 
                 // Info Project - pakai TABEL tanpa border
@@ -199,13 +199,13 @@ class LaporanController extends Controller
                 $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 11]);
                 $infoTable->addCell(7000, $cellStyle)->addText('PT. TELKOM AKSES', ['size' => 11]);
 
-                $section->addTextBreak(1);
+                $section->addTextBreak(0.5);
 
                 // Tabel Gambar - maksimal 6 foto (3 kolom x 2 baris) dalam SATU tabel
                 $imageTable = $section->addTable([
                     'borderSize' => 6,
                     'borderColor' => '000000',
-                    'cellMargin' => 80,
+                    'cellMargin' => 50,
                     'alignment' => Jc::START,
                     'width' => 8500,
                     'unit' => 'dxa'
@@ -227,8 +227,8 @@ class LaporanController extends Controller
                                 list($width, $height) = getimagesize($fullPath);
                                 $ratio = $width / $height;
                                 
-                                $maxWidth = 150;
-                                $maxHeight = 200;
+                                $maxWidth = 130;
+                                $maxHeight = 170;
 
                                 if ($ratio < 1) { // Portrait
                                     $newHeight = $maxHeight;
