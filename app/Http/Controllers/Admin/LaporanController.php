@@ -205,7 +205,7 @@ class LaporanController extends Controller
                     'borderColor' => '000000',
                     'cellMargin' => 40,
                     'alignment' => Jc::START,
-                    'width' => 9500,
+                    'width' => 10650,
                     'unit' => 'dxa'
                 ]);
 
@@ -215,7 +215,7 @@ class LaporanController extends Controller
                     // Row gambar
                     $imageTable->addRow();
                     foreach ($row as $fileData) {
-                        $cell = $imageTable->addCell(3150, ['valign' => 'center']);
+                        $cell = $imageTable->addCell(3550, ['valign' => 'center']);
                         $safePath = ltrim($fileData['path'], '/');
                         $fullPath = storage_path('app/public/' . $safePath);
 
@@ -252,13 +252,13 @@ class LaporanController extends Controller
                     
                     // Isi cell kosong jika baris tidak penuh
                     for ($i = count($row); $i < 3; $i++) {
-                        $imageTable->addCell(3150);
+                        $imageTable->addCell(3550);
                     }
 
                     // Row caption
                     $imageTable->addRow();
                     foreach ($row as $fileData) {
-                        $imageTable->addCell(3150, ['valign' => 'center'])->addText(
+                        $imageTable->addCell(3550, ['valign' => 'center'])->addText(
                             $fileData['caption'] ?? '',
                             ['size' => 8],
                             ['alignment' => Jc::CENTER]
@@ -267,7 +267,7 @@ class LaporanController extends Controller
                     
                     // Isi cell caption kosong jika baris tidak penuh
                     for ($i = count($row); $i < 3; $i++) {
-                        $imageTable->addCell(3150);
+                        $imageTable->addCell(3550);
                     }
                 }
             }
