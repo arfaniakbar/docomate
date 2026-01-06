@@ -114,8 +114,8 @@ class LaporanController extends Controller
                 $section = $phpWord->addSection([
                     'marginTop' => 800,
                     'marginBottom' => 800,
-                    'marginLeft' => 800,
-                    'marginRight' => 800
+                    'marginLeft' => 1200,
+                    'marginRight' => 1200
                 ]);
 
                 // Header Logo - di setiap halaman
@@ -142,11 +142,11 @@ class LaporanController extends Controller
                 }
 
                 // Title
-                $section->addTextBreak(0.5);
+                $section->addTextBreak(1.5);
                 $section->addText(
                     'EVIDENCE PEKERJAAN',
                     ['bold' => true, 'size' => 14, 'underline' => 'single'],
-                    ['alignment' => Jc::CENTER, 'spaceAfter' => 100]
+                    ['alignment' => Jc::CENTER, 'spaceAfter' => 150]
                 );
 
                 // Info Project - pakai TABEL tanpa border
@@ -225,7 +225,7 @@ class LaporanController extends Controller
                                 
                                 // Ukuran lebih kecil agar muat 1 halaman
                                 $maxWidth = 120;
-                                $maxHeight = 150;
+                                $maxHeight = 160;
 
                                 if ($ratio < 1) { // Portrait
                                     $newHeight = $maxHeight;
