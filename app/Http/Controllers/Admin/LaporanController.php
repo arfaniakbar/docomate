@@ -170,7 +170,8 @@ class LaporanController extends Controller
                 $infoTable->addCell(1800, $cellStyle)->addText('PROYEK', ['bold' => true, 'size' => 11]);
                 $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 11]);
                 $cell = $infoTable->addCell(7000, $cellStyle);
-                $cell->addText('PENGADAAN PEKERJAAN OUTSIDE PLANT FIBER TO THE HOME (OSP - FTTH) TAHUN 2026 TELKOM REGIONAL IV KALIMANTAN', ['size' => 11]);
+                $cell->addText('PENGADAAN PEKERJAAN OUTSIDE PLANT FIBER TO THE HOME', ['size' => 11]);
+                $cell->addText('(OSP - FTTH) TAHUN 2026 TELKOM REGIONAL IV KALIMANTAN', ['size' => 11]);
                 
                 // KONTRAK
                 $infoTable->addRow();

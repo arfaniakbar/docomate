@@ -96,7 +96,8 @@
             <td class="label">PROYEK</td>
             <td class="separator">:</td>
             <td class="value">
-                PENGADAAN PEKERJAAN OUTSIDE PLANT FIBER TO THE HOME (OSP - FTTH) TAHUN 2026 TELKOM REGIONAL IV KALIMANTAN
+                PENGADAAN PEKERJAAN OUTSIDE PLANT FIBER TO THE HOME<br>
+                (OSP - FTTH) TAHUN 2026 TELKOM REGIONAL IV KALIMANTAN
             </td>
         </tr>
         <tr><td class="label">KONTRAK</td><td class="separator">:</td><td class="value"></td></tr>
