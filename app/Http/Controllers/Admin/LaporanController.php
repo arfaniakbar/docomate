@@ -252,7 +252,7 @@ class LaporanController extends Controller
                     
                     // Isi cell kosong jika baris tidak penuh
                     for ($i = count($row); $i < 3; $i++) {
-                        $imageTable->addCell(2800);
+                        $imageTable->addCell(3150);
                     }
 
                     // Row caption
@@ -267,7 +267,7 @@ class LaporanController extends Controller
                     
                     // Isi cell caption kosong jika baris tidak penuh
                     for ($i = count($row); $i < 3; $i++) {
-                        $imageTable->addCell(2800);
+                        $imageTable->addCell(3150);
                     }
                 }
             }
