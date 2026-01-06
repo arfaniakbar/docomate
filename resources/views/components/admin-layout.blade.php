@@ -107,7 +107,7 @@
 
     <div class="content">
         <div class="topbar">
-            <div class="welcome">Selamat Datang Admin, di Website PT Telkom Akses Banjarmasin</div>
+            <div class="welcome">Selamat Datang Admin di Website PT Telkom Akses Banjarmasin</div>
             
             {{-- 💡 Perubahan: Beri ID pada elemen waktu --}}
             <div class="date" id="current-time"></div> 

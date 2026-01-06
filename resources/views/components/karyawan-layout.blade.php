@@ -144,7 +144,7 @@
     </div>
     <div class="content">
         <div class="topbar">
-            <div class="welcome">Selamat Datang, {{ Auth::user()->name }}</div>
+            <div class="welcome">Selamat Datang {{ Auth::user()->name }}</div>
             <div class="date" id="current-time"></div>
         </div>
         {{ $slot }}
