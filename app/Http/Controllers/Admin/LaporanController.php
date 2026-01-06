@@ -148,7 +148,7 @@ class LaporanController extends Controller
                     ['bold' => true, 'size' => 14, 'underline' => 'single'],
                     ['alignment' => Jc::CENTER, 'spaceAfter' => 0]
                 );
-                $section->addTextBreak(2.0);
+                $section->addTextBreak(1.5);
 
                 // Info Project - pakai TABEL tanpa border
                 $infoTableStyle = [
