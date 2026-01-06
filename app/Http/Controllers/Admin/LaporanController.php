@@ -142,7 +142,7 @@ class LaporanController extends Controller
                 }
 
                 // Title
-                $section->addTextBreak(1.5);
+                $section->addTextBreak(2.0);
                 $section->addText(
                     'EVIDENCE PEKERJAAN',
                     ['bold' => true, 'size' => 14, 'underline' => 'single'],
