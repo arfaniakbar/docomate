@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | PT Telkom Akses</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo-icon.png') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -135,8 +136,8 @@
 ">
     <div class="login-container">
         <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px; gap: 15px;">
-            <img src="{{ asset('images/logo-icon.png') }}" alt="Logo Icon" style="width: 50px; height: auto; mix-blend-mode: multiply;">
-            <img src="{{ asset('images/logo-kanan.png') }}" alt="Logo Telkom Akses" style="width: 120px; height: auto; margin: 0; mix-blend-mode: multiply;">
+            <img src="{{ asset('images/logo-icon.png') }}" alt="Logo Icon" style="width: 50px; height: auto;">
+            <img src="{{ asset('images/logo-kanan.png') }}" alt="Logo Telkom Akses" style="width: 120px; height: auto; margin: 0;">
         </div>
         
         <h2>PORTAL LOGIN</h2>

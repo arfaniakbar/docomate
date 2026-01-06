@@ -120,7 +120,7 @@
 <body>
     <div class="sidebar">
         <div class="logo-container">
-            <img src="{{ asset('images/logo-kanan.png') }}" alt="Logo Telkom Akses" style="mix-blend-mode: multiply;">
+            <img src="{{ asset('images/logo-kanan.png') }}" alt="Logo Telkom Akses">
             <h2>Karyawan</h2>
         </div>
         <a href="{{ route('karyawan.dashboard') }}"
