@@ -112,10 +112,10 @@ class LaporanController extends Controller
 
             foreach ($imageChunks as $chunkIndex => $pageImages) {
                 $section = $phpWord->addSection([
-                    'marginTop' => 1000,
-                    'marginBottom' => 1000,
-                    'marginLeft' => 1000,
-                    'marginRight' => 1000
+                    'marginTop' => 800,
+                    'marginBottom' => 800,
+                    'marginLeft' => 800,
+                    'marginRight' => 800
                 ]);
 
                 // Header Logo - di setiap halaman
@@ -127,7 +127,7 @@ class LaporanController extends Controller
                 $cellLeft = $headerTable->addCell(4500);
                 if (file_exists(public_path('images/logo-kiri.png'))) {
                     $cellLeft->addImage(public_path('images/logo-kiri.png'), [
-                        'height' => 45, 
+                        'height' => 40, 
                         'alignment' => Jc::START
                     ]);
                 }
@@ -136,17 +136,17 @@ class LaporanController extends Controller
                 $cellRight = $headerTable->addCell(4500);
                 if (file_exists(public_path('images/logo-kanan.png'))) {
                     $cellRight->addImage(public_path('images/logo-kanan.png'), [
-                        'height' => 55,
+                        'height' => 50,
                         'alignment' => Jc::END
                     ]);
                 }
 
                 // Title
-                $section->addTextBreak(1);
+                $section->addTextBreak(0.5);
                 $section->addText(
                     'EVIDENCE PEKERJAAN',
                     ['bold' => true, 'size' => 14, 'underline' => 'single'],
-                    ['alignment' => Jc::CENTER, 'spaceAfter' => 120]
+                    ['alignment' => Jc::CENTER, 'spaceAfter' => 100]
                 );
 
                 // Info Project - pakai TABEL tanpa border
@@ -154,9 +154,7 @@ class LaporanController extends Controller
                     'borderSize' => 0,
                     'borderColor' => 'FFFFFF',
                     'cellMargin' => 0,
-                    'alignment' => Jc::START,
-                    'width' => 8500,
-                    'unit' => 'dxa'
+                    'alignment' => Jc::START
                 ];
                 
                 $cellStyle = [
@@ -169,52 +167,50 @@ class LaporanController extends Controller
                 
                 // PROYEK
                 $infoTable->addRow();
-                $infoTable->addCell(1800, $cellStyle)->addText('PROYEK', ['bold' => true, 'size' => 11]);
-                $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 11]);
+                $infoTable->addCell(1800, $cellStyle)->addText('PROYEK', ['bold' => true, 'size' => 10]);
+                $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 10]);
                 $cell = $infoTable->addCell(7000, $cellStyle);
-                $cell->addText('PENGADAAN PEKERJAAN OUTSIDE PLANT FIBER TO THE HOME', ['size' => 11]);
-                $cell->addText('(OSP - FTTH) TAHUN 2026 TELKOM REGIONAL IV KALIMANTAN', ['size' => 11]);
+                $cell->addText('PENGADAAN PEKERJAAN OUTSIDE PLANT FIBER TO THE HOME', ['size' => 10]);
+                $cell->addText('(OSP - FTTH) TAHUN 2026 TELKOM REGIONAL IV KALIMANTAN', ['size' => 10]);
                 
                 // KONTRAK
                 $infoTable->addRow();
-                $infoTable->addCell(1800, $cellStyle)->addText('KONTRAK', ['bold' => true, 'size' => 11]);
-                $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 11]);
-                $infoTable->addCell(7000, $cellStyle)->addText('', ['size' => 11]);
+                $infoTable->addCell(1800, $cellStyle)->addText('KONTRAK', ['bold' => true, 'size' => 10]);
+                $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 10]);
+                $infoTable->addCell(7000, $cellStyle)->addText('', ['size' => 10]);
                 
                 // AREA
                 $infoTable->addRow();
-                $infoTable->addCell(1800, $cellStyle)->addText('AREA', ['bold' => true, 'size' => 11]);
-                $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 11]);
-                $infoTable->addCell(7000, $cellStyle)->addText('BANJARMASIN', ['size' => 11]);
+                $infoTable->addCell(1800, $cellStyle)->addText('AREA', ['bold' => true, 'size' => 10]);
+                $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 10]);
+                $infoTable->addCell(7000, $cellStyle)->addText('BANJARMASIN', ['size' => 10]);
                 
                 // LOKASI
                 $infoTable->addRow();
-                $infoTable->addCell(1800, $cellStyle)->addText('LOKASI', ['bold' => true, 'size' => 11]);
-                $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 11]);
-                $infoTable->addCell(7000, $cellStyle)->addText($evidence->lokasi ?? '-', ['size' => 11]);
+                $infoTable->addCell(1800, $cellStyle)->addText('LOKASI', ['bold' => true, 'size' => 10]);
+                $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 10]);
+                $infoTable->addCell(7000, $cellStyle)->addText($evidence->lokasi ?? '-', ['size' => 10]);
                 
                 // PELAKSANA
                 $infoTable->addRow();
-                $infoTable->addCell(1800, $cellStyle)->addText('PELAKSANA', ['bold' => true, 'size' => 11]);
-                $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 11]);
-                $infoTable->addCell(7000, $cellStyle)->addText('PT. TELKOM AKSES', ['size' => 11]);
+                $infoTable->addCell(1800, $cellStyle)->addText('PELAKSANA', ['bold' => true, 'size' => 10]);
+                $infoTable->addCell(200, $cellStyle)->addText(':', ['size' => 10]);
+                $infoTable->addCell(7000, $cellStyle)->addText('PT. TELKOM AKSES', ['size' => 10]);
 
-                $section->addTextBreak(0.5);
+                $section->addTextBreak(0.3);
 
-                // Tabel Gambar - maksimal 6 foto (3 kolom x 2 baris) dalam SATU tabel
+                // Tabel Gambar - 6 foto (3 kolom x 2 baris) dalam SATU tabel
                 $imageTable = $section->addTable([
                     'borderSize' => 6,
                     'borderColor' => '000000',
-                    'cellMargin' => 50,
-                    'alignment' => Jc::START,
-                    'width' => 8500,
-                    'unit' => 'dxa'
+                    'cellMargin' => 40,
+                    'alignment' => Jc::START
                 ]);
 
                 $imageRows = array_chunk($pageImages, 3);
                 
                 foreach ($imageRows as $row) {
-                    // Row gambar - tinggi otomatis
+                    // Row gambar
                     $imageTable->addRow();
                     foreach ($row as $fileData) {
                         $cell = $imageTable->addCell(2800, ['valign' => 'center']);
@@ -227,8 +223,9 @@ class LaporanController extends Controller
                                 list($width, $height) = getimagesize($fullPath);
                                 $ratio = $width / $height;
                                 
-                                $maxWidth = 130;
-                                $maxHeight = 170;
+                                // Ukuran lebih kecil agar muat 1 halaman
+                                $maxWidth = 120;
+                                $maxHeight = 150;
 
                                 if ($ratio < 1) { // Portrait
                                     $newHeight = $maxHeight;
@@ -261,7 +258,7 @@ class LaporanController extends Controller
                     foreach ($row as $fileData) {
                         $imageTable->addCell(2800, ['valign' => 'center'])->addText(
                             $fileData['caption'] ?? '',
-                            ['size' => 9],
+                            ['size' => 8],
                             ['alignment' => Jc::CENTER]
                         );
                     }
