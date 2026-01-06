@@ -93,8 +93,7 @@
             <td>PROYEK</td>
             <td>:</td>
             <td>
-                PENGADAAN PEKERJAAN OUTSIDE PLANT FIBER TO THE HOME (OSP - FTTH)<br>
-                TAHUN 2025 TELKOM REGIONAL IV KALIMANTAN
+                PENGADAAN PEKERJAAN OUTSIDE PLANT FIBER TO THE HOME (OSP - FTTH) TAHUN 2026 TELKOM REGIONAL IV KALIMANTAN
             </td>
         </tr>
         <tr><td>KONTRAK</td><td>:</td><td></td></tr>
