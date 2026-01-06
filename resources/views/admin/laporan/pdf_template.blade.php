@@ -77,12 +77,12 @@
         <tr>
             <td style="width: 50%; text-align: left;">
                 @if($logoAksesBase64)
-                    <img src="{{ $logoAksesBase64 }}" alt="Logo Akses" style="height: 50px;">
+                    <img src="{{ $logoAksesBase64 }}" alt="Logo Akses" style="height: 70px;">
                 @endif
             </td>
             <td style="width: 50%; text-align: right;">
                 @if($logoIndonesiaBase64)
-                    <img src="{{ $logoIndonesiaBase64 }}" alt="Logo Indonesia" style="height: 60px;">
+                    <img src="{{ $logoIndonesiaBase64 }}" alt="Logo Indonesia" style="height: 85px;">
                 @endif
             </td>
         </tr>
