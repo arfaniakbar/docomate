@@ -180,7 +180,7 @@
 
             {{-- Pangwas (WAJIB) --}}
             <div class="form-group">
-                <label for="pangwas_id">Pilih Waspang (Waspang)</label>
+                <label for="pangwas_id">Pilih Waspang</label>
                 <select id="pangwas_id" name="pangwas_id" class="form-group select" required>
                     <option value="">-- Pilih Waspang --</option>
                     @foreach ($pangwas_list as $pangwas)
