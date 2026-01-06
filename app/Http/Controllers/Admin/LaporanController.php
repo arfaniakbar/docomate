@@ -154,7 +154,7 @@ class LaporanController extends Controller
                     'borderSize' => 0,
                     'borderColor' => 'FFFFFF',
                     'cellMargin' => 0,
-                    'alignment' => Jc::CENTER,
+                    'alignment' => Jc::START,
                     'width' => 9000,
                     'unit' => 'dxa'
                 ];
@@ -209,13 +209,13 @@ class LaporanController extends Controller
                         'borderSize' => 6,
                         'borderColor' => '000000',
                         'cellMargin' => 80,
-                        'alignment' => Jc::CENTER,
+                        'alignment' => Jc::START, // Sejajarkan dng infoTable
                         'width' => 9000,
                         'unit' => 'dxa'
                     ]);
 
-                    // Row gambar
-                    $imageTable->addRow(2000);
+                    // Row gambar - tinggi otomatis
+                    $imageTable->addRow();
                     foreach ($row as $fileData) {
                         $cell = $imageTable->addCell(3000, ['valign' => 'center']);
                         $safePath = ltrim($fileData['path'], '/');
@@ -228,13 +228,20 @@ class LaporanController extends Controller
                                 list($width, $height) = getimagesize($fullPath);
                                 $ratio = $width / $height;
                                 
-                                // Portrait: Max height 230, width follows ratio
-                                // Landscape: Max width 180, height follows ratio
+                                // Maksimal dimensi agar pas di cell
+                                $maxWidth = 180;
+                                $maxHeight = 240;
+
                                 if ($ratio < 1) { // Portrait
-                                    $newHeight = 230;
+                                    $newHeight = $maxHeight;
                                     $newWidth = $newHeight * $ratio;
+                                    // Jika lebar masih kepanjangan
+                                    if ($newWidth > $maxWidth) {
+                                        $newWidth = $maxWidth;
+                                        $newHeight = $newWidth / $ratio;
+                                    }
                                 } else { // Landscape
-                                    $newWidth = 180;
+                                    $newWidth = $maxWidth;
                                     $newHeight = $newWidth / $ratio;
                                 }
 
