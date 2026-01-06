@@ -82,7 +82,7 @@
 <body>
     <div class="sidebar">
         <div class="logo-container">
-            <img src="{{ asset('images/logo-kanan.png') }}" alt="Logo Telkom Akses">
+            <img src="{{ asset('images/logo-kanan.png') }}" alt="Logo Telkom Akses" style="mix-blend-mode: multiply;">
             <h2>Telkom Akses</h2>
         </div>
         
