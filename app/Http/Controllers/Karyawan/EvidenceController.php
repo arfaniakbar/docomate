@@ -162,6 +162,8 @@ class EvidenceController extends Controller
      */
     public function edit(Evidence $evidence)
     {
+        return "Controller reached. ID: " . $evidence->id . " | User Check: " . ($evidence->user_id == Auth::id() ? 'OK' : 'FAIL');
+        /*
         \Illuminate\Support\Facades\Log::info('Entering EvidenceController::edit', ['evidence_id' => $evidence->id, 'user_id' => Auth::id()]);
 
         if ($evidence->user_id !== Auth::id()) {
@@ -187,6 +189,7 @@ class EvidenceController extends Controller
             \Illuminate\Support\Facades\Log::error('Evidence Edit Error: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
             throw $e;
         }
+        */
     }
 
     /**
