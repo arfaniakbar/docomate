@@ -174,9 +174,12 @@
                                 if (is_array($fileData)) {
                                     $path = $fileData['path'] ?? null;
                                     $caption = $fileData['caption'] ?? 'File ' . ($index + 1);
-                                } else {
+                                } elseif (is_string($fileData)) {
                                     $path = $fileData;
                                     $caption = basename($path);
+                                } else {
+                                    $path = null;
+                                    $caption = null;
                                 }
                             @endphp
                             @if($path)
