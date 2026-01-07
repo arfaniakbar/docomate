@@ -162,17 +162,31 @@ class EvidenceController extends Controller
      */
     public function edit(Evidence $evidence)
     {
+        \Illuminate\Support\Facades\Log::info('Entering EvidenceController::edit', ['evidence_id' => $evidence->id, 'user_id' => Auth::id()]);
+
         if ($evidence->user_id !== Auth::id()) {
+            \Illuminate\Support\Facades\Log::warning('Evidence Edit: Unauthorized access attempt', ['evidence_user_id' => $evidence->user_id, 'auth_id' => Auth::id()]);
             abort(403, 'AKSES DITOLAK.');
         }
 
-        // Mengambil data master untuk dropdown
-        $pangwas_list = Pangwas::latest()->get();
-        $tematik_list = Tematik::orderBy('nama_tematik', 'asc')->get();
-        // Di form EDIT, kita tidak perlu memfilter PO karena PO yang sudah selesai harus tetap bisa diedit.
-        $po_list = PurchaseOrder::orderBy('no_po', 'asc')->get();
+        try {
+            // Mengambil data master untuk dropdown
+            $pangwas_list = Pangwas::latest()->get();
+            $tematik_list = Tematik::orderBy('nama_tematik', 'asc')->get();
+            // Di form EDIT, kita tidak perlu memfilter PO karena PO yang sudah selesai harus tetap bisa diedit.
+            $po_list = PurchaseOrder::orderBy('no_po', 'asc')->get();
 
-        return view('karyawan.evidence.edit', compact('evidence', 'pangwas_list', 'tematik_list', 'po_list'));
+            \Illuminate\Support\Facades\Log::info('Evidence Edit: Data loaded', [
+                'pangwas_count' => $pangwas_list->count(), 
+                'tematik_count' => $tematik_list->count(), 
+                'po_count' => $po_list->count()
+            ]);
+
+            return view('karyawan.evidence.edit', compact('evidence', 'pangwas_list', 'tematik_list', 'po_list'));
+        } catch (\Exception $e) {
+            \Illuminate\Support\Facades\Log::error('Evidence Edit Error: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            throw $e;
+        }
     }
 
     /**
