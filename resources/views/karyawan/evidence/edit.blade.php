@@ -176,7 +176,8 @@
                             @endphp
                             @if($path)
                                 <div class="file-preview-item" data-file-index="{{ $index }}">
-                                    <img src="{{ Storage::url($path) }}" alt="{{ $caption }}">
+                                    {{-- <img src="{{ Storage::url($path) }}" alt="{{ $caption }}"> --}}
+                                    <div style="padding: 20px; text-align: center; background: #eee;">Image Placeholder</div>
                                     <div class="file-info">{{ $caption }}</div>
                                     <button type="button" class="delete-btn" onclick="deleteFile({{ $index }})">
                                         <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
