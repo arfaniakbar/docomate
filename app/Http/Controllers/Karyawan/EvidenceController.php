@@ -162,33 +162,19 @@ class EvidenceController extends Controller
      */
     public function edit(Evidence $evidence)
     {
-        return "Controller reached. ID: " . $evidence->id . " | User Check: " . ($evidence->user_id == Auth::id() ? 'OK' : 'FAIL');
-        /*
-        \Illuminate\Support\Facades\Log::info('Entering EvidenceController::edit', ['evidence_id' => $evidence->id, 'user_id' => Auth::id()]);
-
-        if ($evidence->user_id !== Auth::id()) {
-            \Illuminate\Support\Facades\Log::warning('Evidence Edit: Unauthorized access attempt', ['evidence_user_id' => $evidence->user_id, 'auth_id' => Auth::id()]);
-            abort(403, 'AKSES DITOLAK.');
-        }
-
+        // Debugging Step 2: Test Data Fetching
         try {
-            // Mengambil data master untuk dropdown
             $pangwas_list = Pangwas::latest()->get();
             $tematik_list = Tematik::orderBy('nama_tematik', 'asc')->get();
-            // Di form EDIT, kita tidak perlu memfilter PO karena PO yang sudah selesai harus tetap bisa diedit.
             $po_list = PurchaseOrder::orderBy('no_po', 'asc')->get();
 
-            \Illuminate\Support\Facades\Log::info('Evidence Edit: Data loaded', [
-                'pangwas_count' => $pangwas_list->count(), 
-                'tematik_count' => $tematik_list->count(), 
-                'po_count' => $po_list->count()
-            ]);
-
-            return view('karyawan.evidence.edit', compact('evidence', 'pangwas_list', 'tematik_list', 'po_list'));
+            return "Data Fetching OK. Pangwas: " . $pangwas_list->count() . ", Tematik: " . $tematik_list->count() . ", PO: " . $po_list->count();
         } catch (\Exception $e) {
-            \Illuminate\Support\Facades\Log::error('Evidence Edit Error: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            throw $e;
+             return "Data Fetching FAILED: " . $e->getMessage();
         }
+
+        /*
+        return view('karyawan.evidence.edit', compact('evidence', 'pangwas_list', 'tematik_list', 'po_list'));
         */
     }
 
