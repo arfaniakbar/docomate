@@ -171,8 +171,13 @@
                     @if(is_array($evidence->file_path) && count($evidence->file_path) > 0)
                         @foreach($evidence->file_path as $index => $fileData)
                             @php
-                                $path = $fileData['path'] ?? null;
-                                $caption = $fileData['caption'] ?? 'File ' . ($index + 1);
+                                if (is_array($fileData)) {
+                                    $path = $fileData['path'] ?? null;
+                                    $caption = $fileData['caption'] ?? 'File ' . ($index + 1);
+                                } else {
+                                    $path = $fileData;
+                                    $caption = basename($path);
+                                }
                             @endphp
                             @if($path)
                                 <div class="file-preview-item" data-file-index="{{ $index }}">
